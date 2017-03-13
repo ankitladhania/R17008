@@ -28,17 +28,20 @@ export default {
 
   methods: {
     createBox(){
-      var STLLoader = require('three-stl-loader')(THREE)
-      var OBJLoader = require('three-obj-loader');
-      OBJLoader(THREE);
-      var loader = new THREE.OBJLoader()
+      // var STLLoader = require('three-stl-loader')(THREE)
+      // var OBJLoader = require('three-obj-loader');
+      // OBJLoader(THREE);
+      // var loader = new THREE.OBJLoader()
+      var loader = new THREE.JSONLoader();
 
-      loader.load( require('./sphere.txt'), function ( geometry ) {
-                console.log(geometry)
+      loader.load('/static/monster.json', function ( geometry ) {
+                // console.log(geometry)
                 // var meshMaterial = material;
                 // if (geometry.hasColors) {
                 //   meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
                 // }
+                console.log(geometry.parse)
+
                 var meshMaterial =  new THREE.MeshBasicMaterial( { color: 0xffffff } );
                 var mesh = new THREE.Mesh( geometry, meshMaterial );
                 mesh.position.set( 0.5, 0.2, 0 );
@@ -47,12 +50,7 @@ export default {
                 mesh.castShadow = true;
                 mesh.receiveShadow = true;
                 mesh.name = 'Ocean'
-
-                setTimeout(function(geometry) {
-                    return mesh
-                  
-                }, 6000) 
-
+                return mesh
               });
 
       // const material =  new THREE.MeshBasicMaterial( { color: 0xffffff } );

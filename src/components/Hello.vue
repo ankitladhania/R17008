@@ -2,7 +2,7 @@
   <renderer :size="{ w: 600, h: 400 }">
     <scene>
       <camera :position="{ z: 15 }"></camera>
-      <object3d :obj="mesh" :position="{ z: -200 }"></object3d>
+      <object3d :position="{ z: -200 }"></object3d>
     </scene>
   </renderer>
 
