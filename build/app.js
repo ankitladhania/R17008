@@ -38,7 +38,7 @@ const winery_contours = new WHS.Model({
   rotation: {
     x: -1.59,
     y: 0,
-    z: 0
+    z: 0.6
   },
   scale: {
     x: 0.1,
@@ -58,12 +58,12 @@ new WHS.AmbientLight( {
 }).addTo(app);
 
 
-setTimeout(function() {
-	new WHS.Loop(() => {
+
+new WHS.Loop(() => {
 	  // winery.rotation.z += 0.0015;
-	  winery_contours.rotation.z += 0.0015;
+	  winery_contours.rotation.z -= 0.002;
 	}).start(app);	
-}, 3000);
+
 
 app.start(); // Start animations and physics simulation.
 

@@ -3,6 +3,7 @@
 <head>
 	<title>AHWR</title>
 	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<style type="text/css">
 		.bg{
 			position: absolute;
@@ -26,24 +27,47 @@
 			pointer-events: none;
 		}
 		.info{
-			display: block;
-			position: relative;
-			width: 50px;
-			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+
+			align-content: center;
+			position: absolute;
+			left: 5vw;
+			top: 5vw;
+			width: 90vw;
+			height: 40vh;
 			background-color: white;
-			z-index: 1
+			z-index: -1;
+
+		}
+
+		.info img{
+			width: 100%;
+			max-width: 466px;
+			
+			padding: 2em;
+
+		}
+		body{
+			overflow: hidden !important;
+			
 
 		}
 	</style>
 </head>
 <body>
 
+
 <!-- WhitestormJS library -->
 <script src="whitestorm.js"></script>
 <!-- App written in WhitestormJS -->
 <script src="app.js"></script>
 <div class="bg"></div>
-<div class="info"></div>
+<div class="info">
+	
+	<img src="winery.png" >
+</div>
 <div class="bg-overlay"></div>
 </body>
 </html>
