@@ -1,32 +1,21 @@
-# vue-threejs
+AHWR 
+===
 
-> \[WIP\] [Vue][vue] bindings for [Three.js][threejs]
+Notes
+---
 
-> Migrated from [react-threejs](https://github.com/fritx/react-threejs)
+Use [Cadmapper](https://cadmapper.com/) to extract 3D terrain DXF
 
-<img width="400" src="https://github.com/fritx/react-threejs/raw/dev/debugging.jpg">
+Manual 3D operations:
 
-```js
-import VueThreejs from 'vue-threejs'
-Vue.use(VueThreejs)
-```
+1. Extrude terrain manually, add materials
+2. Use DivideCurveDashed.rvb script in Rhino to generate dashed curves, pipe all curves.
+3. Project hatched winery onto topography surface, pipe, etc.
+3. Flip normals, or find way to make 2-sided in JSON
+4. Move model in center of origin in Rhino just before exporting OBJ with origin (Press enter to use world origin)
+5. Use settings: 
 
-```vue
-<template>
-  <renderer :size="{ w: 600, h: 400 }">
-    <scene>
-      <camera :position="{ z: 15 }"></camera>
-      <object3d :obj="mesh" :position="{ y: -200 }"></object3d>
-    </scene>
-  </renderer>
-</template>
-```
+![Image of Rhino settings](rhino.png)
 
-**Study Notes**
+6. Use `convert_obj_three.py` python script to convert OBJ to JSON: `python convert_obj_three.py -i deviation_all.obj -o deviation_all.js`
 
-- [v-ref is not working with <template> element](https://github.com/vuejs/vue/issues/681#issuecomment-75802646)
-- [Can I use a compoent inherit other compoent?](https://github.com/vuejs/Discussion/issues/354#issuecomment-133019536)
-
-[react-threejs]: https://github.com/fritx/react-threejs
-[threejs]: https://github.com/mrdoob/three.js
-[vue]: https://github.com/vuejs/vue

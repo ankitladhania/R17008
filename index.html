@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AHWR</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<style type="text/css">
+		.bg{
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: #EDEAD2;
+			width: 100vw;
+			height: 100vh;
+			z-index: -1;
+			pointer-events: none;
+		}
+		.bg-overlay{
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-image: url("ricepaper2.png") ;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1;
+			mix-blend-mode: multiply;
+			pointer-events: none;
+		}
+		.info{
+			display: block;
+			position: relative;
+			width: 50px;
+			height: 50px;
+			background-color: white;
+			z-index: 1
+
+		}
+	</style>
+</head>
+<body>
+
+<!-- WhitestormJS library -->
+<script src="whitestorm.js"></script>
+<!-- App written in WhitestormJS -->
+<script src="app.js"></script>
+<div class="bg"></div>
+<div class="info"></div>
+<div class="bg-overlay"></div>
+</body>
+</html>
