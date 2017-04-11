@@ -879,54 +879,54 @@ var $addtotrip, $tripplanner, $plannerhead;
 var userid = 53;
 // var ajaximg = '<img src="/images/ajax-2.gif" width="16" height="11" align="absmiddle" />';
 $(function(){
-  $plannerhead = $('span.planner h3');
-  $addtotrip = $('#addtotrip');
-  $tripplanner = $('#tripplanner');
-  
-  // $addtotrip.html(ajaximg);
-  // $.post('/ajax.cfm', {action: "intrip", id: userid}, _inittripadd, "json");
-  updateplanner();
+	$plannerhead = $('span.planner h3');
+	$addtotrip = $('#addtotrip');
+	$tripplanner = $('#tripplanner');
+	
+	// $addtotrip.html(ajaximg);
+	// $.post('/ajax.cfm', {action: "intrip", id: userid}, _inittripadd, "json");
+	updateplanner();
 });
 
 var _inittripadd = function(data){
-  if(data.INTRIP){
-    $addtotrip.html("<a href='#' onclick='tripremove(" + userid + "); return false;'><i class='fa fa-star'></i><span>Remove from shortlist</span></a>");
-  }else{
-    $addtotrip.html("<a href='#' onclick='tripadd(" + userid + "); return false;'><i class='fa fa-star-o'></i><span>Save to shortlist</span></a>");
-  }
+	if(data.INTRIP){
+		$addtotrip.html("<a href='#' onclick='tripremove(" + userid + "); return false;'><i class='fa fa-star'></i><span>Remove from shortlist</span></a>");
+	}else{
+		$addtotrip.html("<a href='#' onclick='tripadd(" + userid + "); return false;'><i class='fa fa-star-o'></i><span>Save to shortlist</span></a>");
+	}
 }
 
 
 var _tripadd = function(data){
-  if(data.ID == userid)
-    $addtotrip.html("<a href='#' onclick='tripremove(" + userid + "); return false;'><i class='fa fa-star'></i><span>Remove from shortlist</span></a>");
-  updateplanner();
+	if(data.ID == userid)
+		$addtotrip.html("<a href='#' onclick='tripremove(" + userid + "); return false;'><i class='fa fa-star'></i><span>Remove from shortlist</span></a>");
+	updateplanner();
 }
 
 
 var _tripremove = function(data){
-  if(data.ID == userid)
-    $addtotrip.html('<a href="#" onclick="tripadd(' + userid + '); return false;"><i class="fa fa-star-o"></i><span>Save to shortlist</span></a>');
-  updateplanner();
+	if(data.ID == userid)
+		$addtotrip.html('<a href="#" onclick="tripadd(' + userid + '); return false;"><i class="fa fa-star-o"></i><span>Save to shortlist</span></a>');
+	updateplanner();
 }
 
 var updateplanner = function(id){
-  $plannerhead.html('Trip Planner<img src="/images/ajax-gray.gif" width="16" height="11" align="absmiddle" style="margin-left:15px;" />');
-  // $.post('/ajax.cfm', {action: "getplanner"}, _updateplanner, "json");
+	$plannerhead.html('Trip Planner<img src="/images/ajax-gray.gif" width="16" height="11" align="absmiddle" style="margin-left:15px;" />');
+	// $.post('/ajax.cfm', {action: "getplanner"}, _updateplanner, "json");
 }
 
 var _updateplanner = function(data){
-  $plannerhead.html('Trip Planner');
-  $tripplanner.html(data.TABLE);
+	$plannerhead.html('Trip Planner');
+	$tripplanner.html(data.TABLE);
 }
 
 var tripreset = function(){
-  // $.post('/ajax.cfm', {action: "tripreset"}, _tripreset);
+	// $.post('/ajax.cfm', {action: "tripreset"}, _tripreset);
 }
 
 var _tripreset = function(){
-  $addtotrip.html('<a href="#" onclick="tripadd(' + userid + '); return false;"><i class="fa fa-star-o"></i><span>Save to shortlist</span></a>');
-  updateplanner();
+	$addtotrip.html('<a href="#" onclick="tripadd(' + userid + '); return false;"><i class="fa fa-star-o"></i><span>Save to shortlist</span></a>');
+	updateplanner();
 }
 </script>
 
@@ -1241,6 +1241,23 @@ Deviation Road has an impressive and growing list of accolades including: 3 time
     </div>
 
 
+        
+
+
+
+
+  
+  
+
+
+        
+
+
+
+
+  
+  
+
     <div class="profilecolumn">
       <h4 style="background:#38a972;">Towns Nearby</h4>
   <ul class="fa-ul taglist">
@@ -1279,48 +1296,58 @@ Deviation Road has an impressive and growing list of accolades including: 3 time
     
     <div class="profilecolumn">
     <h4 style="background:#54b359;">Geography</h4>
-    <iframe frameborder=0 width="100%" src="index2.html" class="iframe"></iframe>
+    asdf
+
     
-    <div class="touch"><img src="ic_touch_app_green_24px.svg" class="touch-icon"/></div>
-    <p style="line-height: 0em; margin-left: 30px"> Touch to explore geography </p>
+    
 
-<style type="text/css">
-.touch{
-  margin: 3em;
-  float:left
-}
-
-
-html,
-body,
-.iframe,
-{
-    height: 100%;
-}
-
-.iframe {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 200px !important;
-  margin-bottom: 10px;
-  -webkit-overflow-scrolling:touch;
-  overflow-y: scroll;
-
-}
-</style>    
 
 <div class="container" style="width:100%; max-width:100%;">
 
+
+
+
 </div>
 
-</div>   
+    </div>
+    
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 </div> <!-- container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="container">

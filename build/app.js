@@ -2,7 +2,7 @@ const app = new WHS.App([
   new WHS.app.ElementModule(),
   new WHS.app.SceneModule(),
   new WHS.app.CameraModule({
-    position: new THREE.Vector3(0, 210, 800),
+    position: new THREE.Vector3(0, 110, 100),
     useControls: true,
      fov: 20,
   }),

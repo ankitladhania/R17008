@@ -9,7 +9,7 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			background-color: #EDEAD2;
+			background-color: #fff;
 			width: 100vw;
 			height: 100vh;
 			z-index: -1;
@@ -19,11 +19,12 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			background-image: url("ricepaper2.png") ;
+			background-color: green;
+			/*background-image: url("ricepaper2.png") ;*/
 			width: 100vw;
 			height: 100vh;
 			z-index: 1;
-			mix-blend-mode: multiply;
+			mix-blend-mode: screen;
 			pointer-events: none;
 		}
 		.info{
@@ -49,10 +50,9 @@
 			padding: 2em;
 
 		}
-		body{
+		body, html{
 			overflow: hidden !important;
-			
-
+			margin: 0 !important;
 		}
 	</style>
 </head>
@@ -64,10 +64,10 @@
 <!-- App written in WhitestormJS -->
 <script src="app.js"></script>
 <div class="bg"></div>
-<div class="info">
+<!-- <div class="info"> -->
 	
-	<img src="winery.png" >
-</div>
-<!-- <div class="bg-overlay"></div> -->
+	<!-- <img src="winery.png" > -->
+<!-- </div> -->
+<div class="bg-overlay"></div>
 </body>
 </html>
