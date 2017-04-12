@@ -31,6 +31,10 @@
 </script>
 
 <meta name="description" content="Adelaide Hills Wine">
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.35.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.35.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 
 <body>
@@ -1278,18 +1282,62 @@ Deviation Road has an impressive and growing list of accolades including: 3 time
 
     
     <div class="profilecolumn">
-    <h4 style="background:#54b359;">Geography</h4>
-    <iframe frameborder=0 width="100%" src="index2.html" class="iframe"></iframe>
     
-    <div class="touch"><img src="ic_touch_app_green_24px.svg" class="touch-icon"/></div>
-    <p style="line-height: 0em; margin-left: 30px"> Touch to explore geography </p>
+    
+    <h4 class="header-toggle-map noselect" style="background:#54b359; cursor: pointer; display: none;">Map</h4>
+    <h4 class="header-toggle-geo noselect" style="background:#54b359; cursor: pointer;">Geography</h4>
+
+    <div id="map-container">
+      <div id='map' style='width: 100%; height: 400px;'></div>
+    </div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZWRhbndlaXMiLCJhIjoiY2lmMTVtdWQ0MDRsOHNkbTV2OXd3cDNwNiJ9.MxWj73wGNEvrPSjsh6TJjw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [138.706808, -35.038737],
+        zoom: 13,
+        minZoom: 8,
+        attributionControl: false
+    });
+
+    var marker = new mapboxgl.Marker()
+      .setLngLat([138.706808, -35.038737])
+      .addTo(map);
+
+    $('.header-toggle-map, .header-toggle-geo').click(function(){
+      $('#map-container').toggle();
+      $('#terrain-container').toggle();
+      $('.header-toggle-geo').toggle();
+      $('.header-toggle-map').toggle();
+    })
+
+    $( document ).ready(function() {
+      // $('.header-toggle-geo').trigger('click');
+    });
+    
+
+    </script>
+
+    <div id="terrain-container">
+      <iframe frameborder=0 width="100%" src="index2.html" class="iframe"></iframe>
+      <div class="touch"><img src="ic_touch_app_green_24px.svg" class="touch-icon"/></div>
+      <p style="line-height: 0em; margin-left: 30px"> Touch to explore geography </p>
+    </div>
 
 <style type="text/css">
 .touch{
   margin: 3em;
   float:left
 }
-
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 html,
 body,
@@ -1297,12 +1345,23 @@ body,
 {
     height: 100%;
 }
+#map-container{
+ /* display: block;
+  position: relative;*/
+  min-height: 400px;
+  width: 100%;
+  display: none;
+}
+
+#terrain-container{
+
+}
 
 .iframe {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 200px !important;
+  height: 250px !important;
   margin-bottom: 10px;
   -webkit-overflow-scrolling:touch;
   overflow-y: scroll;

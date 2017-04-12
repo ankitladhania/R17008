@@ -2,7 +2,7 @@ const app = new WHS.App([
   new WHS.app.ElementModule(),
   new WHS.app.SceneModule(),
   new WHS.app.CameraModule({
-    position: new THREE.Vector3(0, 110, 100),
+    position: new THREE.Vector3(0, 190, 260),
     useControls: true,
      fov: 20,
   }),
@@ -15,7 +15,7 @@ const app = new WHS.App([
             antialias: true
         }
   }),
-  new WHS.app.ResizeModule()
+  
 ]);
 
 
