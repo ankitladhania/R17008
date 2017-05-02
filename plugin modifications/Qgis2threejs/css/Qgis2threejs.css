@@ -252,14 +252,45 @@ table.attrs tr td:first-child {
 
 }
 
+.ahw-logo{
+  width: 10%;
+  min-width: 100px;
+  /*background-color: red;*/
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  
+}
+
+.noselect{
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */ 
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.table{
+  width: 50vw;
+  min-width: 350px;
+  max-width: 500px;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+
+}
+
+
 @font-face {
     font-family: 'Knockout30';
-    src: url('fonts/Knockout30.eot');
-    src: url('fonts/Knockout30.eot') format('embedded-opentype'),
-         url('fonts/Knockout30.woff2') format('woff2'),
-         url('fonts/Knockout30.woff') format('woff'),
-         url('fonts/Knockout30.ttf') format('truetype'),
-         url('fonts/Knockout30.svg#Knockout30') format('svg');
+    src: url('./Knockout30.eot');
+    src: url('./Knockout30.eot') format('embedded-opentype'),
+         url('./Knockout30.woff2') format('woff2'),
+         url('./Knockout30.woff') format('woff'),
+         url('./Knockout30.ttf') format('truetype'),
+         url('./Knockout30.svg#Knockout30') format('svg');
 }
 
 
