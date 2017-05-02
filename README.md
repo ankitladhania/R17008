@@ -1,32 +1,12 @@
-# vue-threejs
+# Qgis to threejs
 
-> \[WIP\] [Vue][vue] bindings for [Three.js][threejs]
+## Plugin modification
 
-> Migrated from [react-threejs](https://github.com/fritx/react-threejs)
+All plugin modifications have been saved to the folder `Qgis2threejs`. If starting from scratch, move this folder to your local Qgis plugins directory: `C:\Users\edanweis\.qgis2\python\plugins\` replacing the existing one.
 
-<img width="400" src="https://github.com/fritx/react-threejs/raw/dev/debugging.jpg">
+## Instructions
 
-```js
-import VueThreejs from 'vue-threejs'
-Vue.use(VueThreejs)
-```
+In QGIS, export project using Qgis2threejs plugin loading threejs_settings8.qto3settings to restore the correct settings.
 
-```vue
-<template>
-  <renderer :size="{ w: 600, h: 400 }">
-    <scene>
-      <camera :position="{ z: 15 }"></camera>
-      <object3d :obj="mesh" :position="{ y: -200 }"></object3d>
-    </scene>
-  </renderer>
-</template>
-```
+## check http://ahwr-piccadilly.surge.sh and http://ahwr.surge.sh for latest snapshots.
 
-**Study Notes**
-
-- [v-ref is not working with <template> element](https://github.com/vuejs/vue/issues/681#issuecomment-75802646)
-- [Can I use a compoent inherit other compoent?](https://github.com/vuejs/Discussion/issues/354#issuecomment-133019536)
-
-[react-threejs]: https://github.com/fritx/react-threejs
-[threejs]: https://github.com/mrdoob/three.js
-[vue]: https://github.com/vuejs/vue
