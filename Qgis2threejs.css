@@ -5,7 +5,7 @@ body {
 
 #webgl {
   /* sky-like */
-  background: linear-gradient(to bottom, #98c8f6 0%,#cbebff 40%,#f0f9ff 100%);
+  background: linear-gradient(to bottom, #fcf2d5 0%,#e3edfa 40%,#f0f9ff 100%)
 }
 
 #footer {
@@ -204,46 +204,52 @@ table.attrs tr td:first-child {
 /* label */
 
 .label {
-  padding: 2px;
+  /*background-color: yellow;*/
   /*text-shadow: -1px -1px #FFF, 0px -1px #FFF, 1px -1px #FFF, -1px 0px #FFF, 1px 0px #FFF, -1px 1px #FFF, 0px 1px #FFF, 1px 1px #FFF;*/
+  padding: 2px;
   position: absolute;
+  color: #34262b;
   pointer-events: none;
+  cursor: default;
   font-family: "Knockout30" !important;
-  font-size: 20px;
-  color: black;
+  font-size: 18px;
+  opacity: 0.75;
 }
 
 .winery{
+  opacity: 1;
+  color:  #65142C !important;
+  font-size: 20px;
+  max-width: 200px;
+  float: right;
+}
+
+.num{
+  /*background-color: pink;*/
+   background-image: url(triangle.svg);
+    background-size:100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size:cover;
+  opacity: 1;
   color: white !important;
-  background: #7f1d48;
-  /*position: relative;*/
-  padding: 7px 10px ;
-  pointer-events: all;
-  cursor: pointer;
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  left:0px;
+  height:30px;
+  float:left;
+
 }
 
-.winery:after {
-  top: 100%;
-  right: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  
-  border-color: rgba(127, 29, 72, 0);
-  border-top-color: #6D193E;
-  border-width: 5px;
-  margin-right:-100%;
-}
 
+.city{
+  color: black !important;
+  font-size: 40px;
+  background: transparent;
+}
 
 .print-label {
   /* these 2 properties are copied to canvas 2D context in renderLabels function of Qgis2threejs.js */
@@ -252,14 +258,43 @@ table.attrs tr td:first-child {
 
 }
 
-@font-face {
-    font-family: 'Knockout30';
-    src: url('fonts/Knockout30.eot');
-    src: url('fonts/Knockout30.eot') format('embedded-opentype'),
-         url('fonts/Knockout30.woff2') format('woff2'),
-         url('fonts/Knockout30.woff') format('woff'),
-         url('fonts/Knockout30.ttf') format('truetype'),
-         url('fonts/Knockout30.svg#Knockout30') format('svg');
+.ahw-logo{
+  width: 10%;
+  min-width: 100px;
+  /*background-color: red;*/
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  
+}
+
+.noselect{
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */ 
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.table{
+  width: 50vw;
+  min-width: 350px;
+  max-width: 500px;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+
 }
 
 
+@font-face {
+    font-family: 'Knockout30';
+    src: url('./Knockout30.eot');
+    src: url('./Knockout30.eot') format('embedded-opentype'),
+         url('./Knockout30.woff2') format('woff2'),
+         url('./Knockout30.woff') format('woff'),
+         url('./Knockout30.ttf') format('truetype'),
+         url('./Knockout30.svg#Knockout30') format('svg');
+}

@@ -15,7 +15,7 @@ Q3D.Options = {
   },
   side: {color: 0x323d39, bottomZ: -0.5},
   frame: {color: 0, bottomZ: -1.5},
-  label: {visible: true, connectorColor: 0xc0c0d0, autoSize: false, minFontSize: 10},
+  label: {visible: true, connectorColor: 0xc0c0d0, autoSize: true, minFontSize: 10},
   qmarker: {r: 0, c: 0xffff00, o: 0.8},
   debugMode: false,
   exportMode: false,
@@ -422,7 +422,7 @@ limitations:
 
         // set label position
         e.style.display = "block";
-        e.style.left = (x - (e.offsetWidth / 2)) + "px";
+        e.style.left = x + "px";
         e.style.top = (y - (e.offsetHeight / 2)) + "px";
         e.style.zIndex = i + 1;
 
@@ -430,7 +430,7 @@ limitations:
         if (autosize) {
           dist = idx_dist[i][1];
           if (dist < 10) dist = 10;
-          fontSize = Math.max(Math.round(1000 / dist), minFontSize);
+          fontSize = Math.min(20,Math.max(Math.round(1000 / dist), minFontSize)) 
           e.style.fontSize = fontSize + "px";
         }
       }
@@ -1582,15 +1582,31 @@ Q3D.VectorLayer.prototype.buildLabels = function (parent, parentElement, getPoin
       var pt = pts[j];
       // create div element for label
       var e = document.createElement("div");
-      e.appendChild(document.createTextNode(text));
+      var e2 = document.createElement("span");
+      
+      var text_formatted = text.replace('~', '')  
+      var winery_num = text.match(/^\d*/)[0]
+      var winery_name = text.match(/(?!\d)[\D]+/)[0]
       // if (color_override) {
-        var expr = /^\d/;  // no quotes here
-        if (expr.test(text)){
-          e.className = "label winery"  
-        } else{
-          e.className = "label"
+        var winery = /^\d/;  
+        var city = /^\~/;
+
+        if (winery.test(text)){
+          e.className = "label winery noselect"
+          e2.className = "num"
+          e2.appendChild(document.createTextNode(winery_num))
+          e.appendChild(e2)
+          e.appendChild(document.createTextNode(winery_name));
+        } else if (city.test(text)){
+          e.className = "label city noselect"  
+          e.appendChild(document.createTextNode(text_formatted));
+        } else {
+          e.className = "label noselect"
+          e.appendChild(document.createTextNode(text_formatted));
         }
-        
+      
+      
+
       // } else{
         // e.className = String(text)
       // }

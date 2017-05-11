@@ -2,11 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index</title>
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>Adelaide Hills Wine Region</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
 </head>
 <body>
+<div style="position:absolute; z-index: -1; display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh; background: linear-gradient(to bottom, #fcf2d5 0%,#e3edfa 40%,#f0f9ff 100%)">
+  <img src="loading.gif"/>
+</div>
+<div id="logo">
+  <img src="ahw.svg" class="ahw-logo"/>
+</div>
+
+<!-- <div id="table">
+  <img src="legend.svg" class="table"/>
+</div>
+ -->
 <div id="webgl"></div>
 
 <!-- popup -->
@@ -41,9 +52,8 @@ and uses the following library:
 <script src="./threejs/OrbitControls.js"></script>
 <script>
 var option = Q3D.Options;
-option.bgcolor = 0xffffff;
+
 </script>
-<script src="./proj4js/proj4.js"></script>
 <script src="./index.js"></script>
 <script>
 if (typeof proj4 !== "undefined") document.getElementById("lib_proj4js").style.display = "list-item";

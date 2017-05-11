@@ -77,8 +77,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 	this.zoomSpeed = 1.0;
 
 	// Limits to how far you can dolly in and out
-	this.minDistance = 170;
-	this.maxDistance = 600;
+	this.minDistance = 15;
+	this.maxDistance = 250;
 
 	// Set to true for upside down
 	this.upsideDown = false;
@@ -86,7 +86,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	// Set to true to disable this control
 	this.noRotate = false;
-	this.rotateSpeed = 0.5;
+	this.rotateSpeed = 0.2;
 	this.keyRotateAngle = Math.PI / 90;
 
 	// Set to true to disable this control
@@ -95,7 +95,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	// Set to true to automatically rotate around the target
 	this.autoRotate = true;
-	this.autoRotateSpeed = 0.5; // 30 seconds per round when fps is 60
+	this.autoRotateSpeed = 0.2; // 30 seconds per round when fps is 60
 
 	// How far you can orbit vertically, upper and lower limits.
 	// Range is 0 to Math.PI radians.
