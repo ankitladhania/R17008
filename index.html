@@ -19,38 +19,38 @@
     </div>
 
     <div :style="blipStyle" :class="['marker', {'blip' : activateBlip ? true : false }]" ></div>
-    <div class="model-container">
-      <model-obj src="./gear.stl"></model-obj>
-    </div>
-
+    <div class="webgl-wrapper">
     <div id="webgl" @mousedown="clickHandler(event)"></div>
+    </div>
+    
+    <!-- <transition name="fadeIn"> -->
+	    <div class="model-container" v-show="modelActive">
+	      <model-obj class="model" style="z-index: 99" :background-alpha="0" src="./lenswood.obj"></model-obj>
+	    </div>
+    <!-- </transition> -->
     <!-- popup -->
 
-    <div id="popup" style="display:none; visibility: hidden !important">
-      <div id="closebtn">&times;</div>
-      <div id="popupbar"></div>
-      <div id="popupbody">
-       <div id="popupcontent"></div>
-     </div>
-   </div>
+    
  </div>
 
 
  <script src="./vue.js"></script>
  <script src="./threejs/three.min.js"></script>
- <script src="./vue-3d-model.min.js"></script>
+ <!-- <script src="./vue-3d-model.min.js"></script> -->
+ <script src="https://unpkg.com/vue-3d-model/dist/vue-3d-model.min.js"></script>
  <script src="./Qgis2threejs.js"></script>
  <script src="./threejs/OrbitControls.js"></script>
  <script src="./index.js"></script>
 
  <script>
-  import { ModelObj } from 'vue-3d-model'
+  // import { ModelObj } from 'vue-3d-model'
  var superpoint = superpoint
   var app = new Vue({
     el: '#app',
     props: [superpoint],
-    components: { window.ModelObj },
+    // components: { window.ModelObj },
     data: {
+      modelActive: true,
       activateBlip: false,
       blipStyle: {},
       superpoint: superpoint
@@ -85,6 +85,7 @@
 
           this.timer = setTimeout(function() {
             self.activateBlip = false
+            self.modelActive = true
             clearTimeout(this.timer)
           }.bind(this), 1000);
 
