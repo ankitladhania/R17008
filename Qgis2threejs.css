@@ -258,6 +258,39 @@ table.attrs tr td:first-child {
 
 }
 
+
+.marker{
+  position: absolute;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  -webkit-transform: scale(0);
+  /*margin-left: -50%;
+  margin-top: -50%;*/
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  -webkit-user-select: none;  /* Chrome all / Safari all */  
+  transform-origin: center center;
+}
+
+  .blip{
+    pointer-events: none;
+    -webkit-user-select: none;  /* Chrome all / Safari all */  
+    position: absolute;
+    left: 50%;
+    top:50%;
+    background-color: : white;
+    opacity: 0;
+    transform: scale(20);
+    transition: all 1040ms cubic-bezier(0,.53,.31,1);
+    transform-origin: center center;
+    -webkit-animation-timing-function: cubic-bezier(.56,.01,0,.99);
+
+  }
+
+
+
 .ahw-logo{
   width: 10%;
   min-width: 100px;

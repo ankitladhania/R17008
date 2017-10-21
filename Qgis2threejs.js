@@ -530,30 +530,30 @@ limitations:
     // obj: html or element
     show: function (obj, title, modal) {
 
-      if (modal) app.pause();
-      else if (this.modal) app.start();   // enable controls
+      // if (modal) app.pause();
+      // else if (this.modal) app.start();   // enable controls
 
-      this.modal = Boolean(modal);
+      // this.modal = Boolean(modal);
 
-      var content = Q3D.$("popupcontent");
-      if (obj === undefined) {
-        // show page info
-        content.style.display = "none";
-        Q3D.$("pageinfo").style.display = "block";
-      }
-      else {
-        Q3D.$("pageinfo").style.display = "none";
-        if (obj instanceof HTMLElement) {
-          content.innerHTML = "";
-          content.appendChild(obj);
-        }
-        else {
-          content.innerHTML = obj;
-        }
-        content.style.display = "block";
-      }
-      Q3D.$("popupbar").innerHTML = title || "";
-      Q3D.$("popup").style.display = "block";
+      // var content = Q3D.$("popupcontent");
+      // if (obj === undefined) {
+      //   // show page info
+      //   content.style.display = "none";
+      //   Q3D.$("pageinfo").style.display = "block";
+      // }
+      // else {
+      //   // Q3D.$("pageinfo").style.display = "none";
+      //   if (obj instanceof HTMLElement) {
+      //     content.innerHTML = "";
+      //     content.appendChild(obj);
+      //   }
+      //   else {
+      //     content.innerHTML = obj;
+      //   }
+      //   // content.style.display = "block";
+      // }
+      // Q3D.$("popupbar").innerHTML = title || "";
+      // Q3D.$("popup").style.display = "block";
     },
 
     hide: function () {
@@ -566,7 +566,7 @@ limitations:
   app.showInfo = function () {
     Q3D.$("urlbox").value = app.currentViewUrl();
     Q3D.$("usage").innerHTML = app.help();
-    app.popup.show();
+    // app.popup.show();
   };
 
   app.showQueryResult = function (point, layerId, featureId) {
@@ -582,6 +582,10 @@ limitations:
 
     // clicked coordinates
     var pt = app.project.toMapCoordinates(point.x, point.y, point.z);
+    superpoint = pt
+    // console.log(superpoint)
+
+
     r.push('<table class="coords">');
     r.push("<caption>Clicked coordinates</caption>");
     r.push("<tr><td>");
@@ -718,7 +722,7 @@ limitations:
 
     var f = layer.f[featureId];
     if (f === undefined || f.objs.length == 0) return;
-
+    console.log(layer.f[featureId])
     var high_mat = app.highlightMaterial;
     var setMaterial = function (obj) {
       obj.material = high_mat;
@@ -766,9 +770,11 @@ limitations:
         object = object.parent;
       }
 
+
       // highlight clicked object
       app.highlightFeature((layerId === undefined) ? null : layerId,
                             (featureId === undefined) ? null : featureId);
+
 
       app.showQueryResult(obj.point, layerId, featureId);
 
@@ -1567,8 +1573,6 @@ Q3D.VectorLayer.prototype.buildLabels = function (parent, parentElement, getPoin
   parentElement.appendChild(e);
   this.labelParentElement = e;
 
-  
-
   for (var i = 0, l = this.f.length; i < l; i++) {
     var f = this.f[i];
     f.aElems = [];
@@ -1592,7 +1596,8 @@ Q3D.VectorLayer.prototype.buildLabels = function (parent, parentElement, getPoin
         var city = /^\~/;
 
         if (winery.test(text)){
-          e.className = "label winery noselect"
+          e.setAttribute('v-on:click', 'clickHandler('+String(winery_num)+')');
+          e.className = "label winery"
           e2.className = "num"
           e2.appendChild(document.createTextNode(winery_num))
           e.appendChild(e2)
@@ -1601,7 +1606,7 @@ Q3D.VectorLayer.prototype.buildLabels = function (parent, parentElement, getPoin
           e.className = "label city noselect"  
           e.appendChild(document.createTextNode(text_formatted));
         } else {
-          e.className = "label noselect"
+          e.className = "label"
           e.appendChild(document.createTextNode(text_formatted));
         }
       
@@ -1630,6 +1635,8 @@ Q3D.VectorLayer.prototype.buildLabels = function (parent, parentElement, getPoin
       this.labels.push({e: e, obj: conn, pt: pt1});
     }
   }
+
+
 };
 
 Q3D.VectorLayer.prototype.meshes = function () {

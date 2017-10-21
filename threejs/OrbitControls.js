@@ -278,6 +278,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		scale /= dollyScale;
 
+		console.log(scale, dollyScale)
+
 	};
 
 	this.dollyOut = function ( dollyScale ) {
