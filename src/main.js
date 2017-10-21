@@ -3,36 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 
-// import store from './store'
-// import Vuex from 'vuex';
-// require('babel-polyfill')
-// Vue.use(Vuex)
-
-// import VueFire from 'vuefire'
-// Vue.use(VueFire) 
-
-// export const store = new Vuex.Store({
-//   state: {
-//     winerySelected: [],
-//   },
-//   getters: {
-//     getWinerySelected: function(state){
-//       return state.winerySelected
-//     }
-//   },
-//   mutations: {
-//     addSelectedWinery: function(state, winery){
-//       state.winerySelected.push(winery)
-//     } 
-//   }
-// })
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // store: store,
   template: '<App/>',
   components: { App }
 })

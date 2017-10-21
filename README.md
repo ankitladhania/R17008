@@ -1,25 +1,21 @@
-Adelaide Hills Wine Region Interactive Map
-===
+# agm
 
-By Urban & Public
----
+> A Vue.js project
 
-This repository contains the source code for the interactive map displayed on [Adelaide Hills Wine](http://adelaidehillswine.com.au/region) website.
+## Build Setup
 
-**Staging site:**
-[http://ahwr-map-ie.surge.sh (AHWR on surge)](http://ahwr-map-ie.surge.sh)
+``` bash
+# install dependencies
+npm install
 
-**Production site:** 
-[http://ahwr-map.surge.sh (embeddable as iframe)](http://ahwr-map.surge.sh)
+# serve with hot reload at localhost:8080
+npm run dev
 
-**Firebase Console:**
+# build for production with minification
+npm run build
 
-[https://console.firebase.google.com/u/0/project/ahwr-e58a9/database](https://console.firebase.google.com/u/0/project/ahwr-e58a9/database)
+# build for production and view the bundle analyzer report
+npm run build --report
+```
 
-**Mapbox Style:**
-
-[Mapbox Sharing URL (no editing)](https://api.mapbox.com/styles/v1/edanweis/cj2iddj93001k2rph61u9lw6f.html?title=true&access_token=pk.eyJ1IjoiZWRhbndlaXMiLCJhIjoiY2lmMTVtdWQ0MDRsOHNkbTV2OXd3cDNwNiJ9.MxWj73wGNEvrPSjsh6TJjw#11.5/-34.980547/138.887153/0)
-
-*Contact [Urban&Public](edan.weis@aspect.net.au) to edit map style and database*
-
-© 2017 Urban&Public
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
