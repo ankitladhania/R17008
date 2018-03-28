@@ -2,37 +2,15 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-
-// import store from './store'
-// import Vuex from 'vuex';
-// require('babel-polyfill')
-// Vue.use(Vuex)
-
-// import VueFire from 'vuefire'
-// Vue.use(VueFire) 
-
-// export const store = new Vuex.Store({
-//   state: {
-//     winerySelected: [],
-//   },
-//   getters: {
-//     getWinerySelected: function(state){
-//       return state.winerySelected
-//     }
-//   },
-//   mutations: {
-//     addSelectedWinery: function(state, winery){
-//       state.winerySelected.push(winery)
-//     } 
-//   }
-// })
-
+import router from './router'
+import store from './store.js'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // store: store,
+  router,
+  store,
   template: '<App/>',
   components: { App }
 })

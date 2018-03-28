@@ -1,53 +1,81 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+  <div>
+  <mappy container="map" :LngLat="[138.8190914,-34.9201098]" mapStyle="mapbox://styles/edanweis/cjdwmisu978ll2snqvwibzhk5" @cameraPosition="cameraPosition" @loaded="loaded" :token="token"></mappy> 
+  <sketchfab style="" :camera="camera"   urlid="6d24cec1439841ae8b8231ae973995ae"
+  autospin='0'
+  autostart='1'
+  preload='1'
+  ui_controls='0'
+  ui_infos='0'
+  ui_related='0'
+  transparent='1'
+  ></sketchfab>
+  <div v-if="mapbox.cameraOrigin" class="origin" :style="{'left': mapbox.cameraOrigin.x +'px', 'top': mapbox.cameraOrigin.y+'px' }"></div>
+</div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Mappy from './Mappy'
+import Sketchfab from './Sketchfab'
+const credentials = require('../credentials.js')
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 export default {
   name: 'hello',
+  components:{
+    Mappy,
+    Sketchfab
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      token: credentials.mapbox.token,
+      camera: null
+    }
+  },
+  created() {
+    var self = this
+      this.$nextTick(function() {
+        self.setWindow(window.innerHeight, window.innerWidth)
+        console.log(window)
+        window.addEventListener('resize', function(e) {
+          console.log('resize', e)
+          self.setWindow(window.innerHeight, window.innerWidth)
+          self.setMapbox({cameraOrigin: self._map.project(self._map.getCenter()) })
+        })
+      })
+  },
+  computed: {
+    ...Vuex.mapGetters(['_map', 'mapbox', 'sketchfab']),
+  },
+  methods:{
+    ...Vuex.mapMutations(['setMap', 'setWindow', 'setMapbox']), 
+    ...Vuex.mapActions([]), 
+
+    cameraPosition(position){
+      // console.log(position)
+      this.camera = {
+        'position': position,
+        // 'rotation': rotation
+      }
+    },
+
+    loaded: function(map){
+    this.setMap(map)
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+<style>
+.origin{
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: blue;
 }
 </style>

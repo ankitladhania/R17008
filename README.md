@@ -1,25 +1,15 @@
-Adelaide Hills Wine Region Interactive Map
-===
+# r17008-phase-2
 
-By Urban & Public
----
+## About
 
-This repository contains the source code for the interactive map displayed on [Adelaide Hills Wine](http://adelaidehillswine.com.au/region) website.
+Digital terrain maps of Onkaparinga Valley, Nairne/Mt Barker, Bugle Ranges, Macclesfield, Mt Bold, Kuitpo, Gumeracha/Northern Hills, Lenswood, Basket Ranges and Piccadilly Valley.
 
-**Staging site:**
-[http://ahwr-map-ie.surge.sh (AHWR on surge)](http://ahwr-map-ie.surge.sh)
 
-**Production site:** 
-[http://ahwr-map.surge.sh (embeddable as iframe)](http://ahwr-map.surge.sh)
+Can I sync Mapbox camera to Sketchfab camera?
 
-**Firebase Console:**
+If yes:
+2D Mapbox map, regions and wineries are highlighted when panning, when tapped, flat 3D building polygon animates up out of the ground.
 
-[https://console.firebase.google.com/u/0/project/ahwr-e58a9/database](https://console.firebase.google.com/u/0/project/ahwr-e58a9/database)
 
-**Mapbox Style:**
-
-[Mapbox Sharing URL (no editing)](https://api.mapbox.com/styles/v1/edanweis/cj2iddj93001k2rph61u9lw6f.html?title=true&access_token=pk.eyJ1IjoiZWRhbndlaXMiLCJhIjoiY2lmMTVtdWQ0MDRsOHNkbTV2OXd3cDNwNiJ9.MxWj73wGNEvrPSjsh6TJjw#11.5/-34.980547/138.887153/0)
-
-*Contact [Urban&Public](edan.weis@aspect.net.au) to edit map style and database*
-
-© 2017 Urban&Public
+**Sketchfab Tamper Monkey preset script:**
+[https://docs.google.com/document/u/1/d/1YK8LITNqAMXwPtIe8Rvx37N0M3BMgaI63qbl3UGZP1c/pub](https://docs.google.com/document/u/1/d/1YK8LITNqAMXwPtIe8Rvx37N0M3BMgaI63qbl3UGZP1c/pub)
